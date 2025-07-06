@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multiplayer Bingo</title>
+  <style>
+    body { font-family: sans-serif; background: #111; color: white; text-align: center; margin: 0; padding: 20px; }
+    .card { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; max-width: 400px; margin: auto; }
+    .slot { background: #333; padding: 10px; border-radius: 5px; cursor: pointer; }
+    .slot.marked { background: green; color: white; }
+    .free { background: green; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Multiplayer Bingo 🎉</h1>
+  <p>Best of Albert - Marcus</p>
+  <p style="color:red;">🎯 Win Pattern: Any Diagonal</p>
+  <div class="card">
+    <div class="slot">"Beer has protein"</div>
+    <div class="slot">Talks Trump</div>
+    <div class="slot">Grand-dogs</div>
+    <div class="slot">"Beer-ad"</div>
+    <div class="slot">"Everyone has a price"</div>
+    <div class="slot">Vape used</div>
+    <div class="slot">"Like a sore Peter..."</div>
+    <div class="slot free">FREE SPACE</div>
+    <div class="slot">Trying to "quit" water</div>
+    <div class="slot">Talks golf</div>
+    <div class="slot">Grandkids (lack of)</div>
+    <div class="slot">"...Chuy at a drug test"</div>
+    <div class="slot">Last to eat</div>
+    <div class="slot">Corina height joke</div>
+    <div class="slot">"How much too..."</div>
+    <div class="slot">Talks SPEED</div>
+  </div>
+  <script>
+    document.querySelectorAll('.slot:not(.free)').forEach(slot => {
+      slot.addEventListener('click', () => {
+        slot.classList.toggle('marked');
+      });
+    });
+  </script>
+</body>
+</html>
