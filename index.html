@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multiplayer Bingo 🎉</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>🎉 Multiplayer Bingo</h1>
+    <form id="game-form">
+      <label>Game ID: <input type="text" id="gameId" required></label><br>
+      <label>Card Title: <input type="text" id="title" required></label><br>
+      <label>Number of Players: <input type="number" id="numPlayers" min="1" max="10" value="2" required></label><br>
+      <label>Winning Pattern:
+        <select id="pattern">
+          <option value="random" selected>Random</option>
+          <option value="any-row">Any Row</option>
+          <option value="any-column">Any Column</option>
+          <option value="any-diagonal">Any Diagonal</option>
+          <option value="four-corners">Four Corners</option>
+          <option value="full-card">Full Card</option>
+        </select>
+      </label><br>
+      <label>15 Items (1 per line):<br><textarea id="items" rows="10" cols="40" required></textarea></label><br>
+      <div id="playerNames"></div>
+      <button type="submit">Generate Game</button>
+    </form>
+    <div id="links"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
