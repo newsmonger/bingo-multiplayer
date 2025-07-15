@@ -1,0 +1,29 @@
+body {
+  background: #111;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  margin: 20px;
+}
+textarea, input, select {
+  width: 300px;
+}
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+td {
+  border: 1px solid white;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  vertical-align: middle;
+  font-size: 14px;
+}
+td.marked {
+  background: limegreen;
+  color: black;
+}
+.hidden {
+  display: none;
+}
