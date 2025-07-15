@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎉 Multiplayer Bingo</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <h1>🎉 Multiplayer Bingo</h1>
+  <div id="game-setup">
+    <label>Game ID: <input type="text" id="gameId" /></label><br/>
+    <label>Card Title: <input type="text" id="cardTitle" /></label><br/>
+    <label>Number of Players: <input type="number" id="numPlayers" min="1" value="1" /></label><br/>
+    <label>Winning Pattern:
+      <select id="winPattern">
+        <option value="random">Random</option>
+        <option value="row">Row</option>
+        <option value="column">Column</option>
+        <option value="diagonal">Diagonal</option>
+        <option value="fourCorners">Four Corners</option>
+        <option value="fullCard">Full Card</option>
+      </select>
+    </label><br/>
+    <label>15 Items (1 per line):<br/>
+      <textarea id="items" rows="10" cols="40"></textarea>
+    </label><br/>
+    <button onclick="generateLinks()">Generate Game</button>
+  </div>
+  <div id="share-links" style="display:none;">
+    <h3>Share these links:</h3>
+    <div id="links"></div>
+  </div>
+  <div id="bingo-board" style="display:none;">
+    <h2 id="card-title"></h2>
+    <div id="board"></div>
+    <p>Winning Pattern: <span id="pattern-name"></span></p>
+    <button onclick="location.href=location.pathname">Reset</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
