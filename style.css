@@ -1,0 +1,31 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+.card {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  justify-content: center;
+  max-width: 300px;
+  margin: 0 auto 20px;
+}
+.card div {
+  border: 1px solid white;
+  padding: 10px;
+  cursor: pointer;
+  background-color: black;
+}
+.card div.marked {
+  background-color: green;
+}
+#bingoCard .free {
+  background-color: lime;
+}
+a {
+  color: lime;
+}
