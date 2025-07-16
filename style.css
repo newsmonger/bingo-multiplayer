@@ -1,0 +1,18 @@
+
+body {
+  background: #111;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 2em;
+}
+textarea {
+  width: 300px;
+}
+.container {
+  margin: auto;
+  max-width: 600px;
+}
+a {
+  color: lime;
+}

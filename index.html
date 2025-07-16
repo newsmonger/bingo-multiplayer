@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎉 Bingo Game Creator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Bingo Game Creator</h1>
+    <label>Game Title: <input type="text" id="title" /></label><br />
+    <label>Number of Cards:
+      <select id="numPlayers">
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+    </label><br />
+    <label>Winning Pattern:
+      <select id="pattern">
+        <option value="random">Random Pattern</option>
+        <option value="row">Row</option>
+        <option value="column">Column</option>
+        <option value="diagonal">Diagonal</option>
+        <option value="fourCorners">Four Corners</option>
+        <option value="fullCard">Full Card</option>
+      </select>
+    </label><br />
+    <label>Enter 15 items (one per line):<br/>
+      <textarea id="items" rows="10" cols="40"></textarea>
+    </label><br />
+    <button onclick="generateLinks()">Generate Game</button>
+    <div id="output"></div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>

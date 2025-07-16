@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bingo Game</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1 id="title">🎉 Bingo</h1>
+    <div id="board"></div>
+    <p id="patternDisplay"></p>
+    <button onclick="reset()">Reset</button>
+  </div>
+  <script>
+    const query = new URLSearchParams(window.location.search);
+    const title = decodeURIComponent(query.get('title') || 'Bingo');
+    const pattern = query.get('pattern') || 'row';
+    const items = decodeURIComponent(query.get('items') || '').split('|');
+    document.getElementById('title').textContent = title;
+    document.getElementById('patternDisplay').textContent = "Winning Pattern: " + pattern;
+
+    const board = document.getElementById('board');
+    let selected = Array(16).fill(false);
+    let winningIndices = [];
+
+    function createCard(items) {
+      while (items.length < 15) items.push("Free");
+      const shuffled = items.slice(0, 15);
+      shuffled.splice(7, 0, "Free");
+
+      for (let i = 0; i < 16; i++) {
+        const div = document.createElement("div");
+        div.textContent = shuffled[i];
+        div.className = "square";
+        if (i === 7) {
+          div.classList.add("free", "marked");
+          selected[i] = true;
+        }
+        div.onclick = () => {
+          div.classList.toggle("marked");
+          selected[i] = !selected[i];
+          checkWin();
+        };
+        board.appendChild(div);
+      }
+    }
+
+    function checkWin() {
+      const lines = {
+        row: [[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15]],
+        column: [[0,4,8,12],[1,5,9,13],[2,6,10,14],[3,7,11,15]],
+        diagonal: [[0,5,10,15],[3,6,9,12]],
+        fourCorners: [[0,3,12,15]],
+        fullCard: [Array.from({length:16},(_,i)=>i)]
+      };
+      for (const line of lines[pattern] || []) {
+        if (line.every(i => selected[i])) {
+          alert("Bingo!");
+          break;
+        }
+      }
+    }
+
+    function reset() {
+      window.location.reload();
+    }
+
+    createCard(items);
+  </script>
+  <style>
+    #board {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      gap: 5px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .square {
+      background: #000;
+      color: white;
+      border: 1px solid white;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .marked {
+      background: green;
+    }
+    .free {
+      background: lime;
+    }
+  </style>
+</body>
+</html>
