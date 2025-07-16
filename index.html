@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bingo Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Bingo Game Creator</h1>
+    <form id="gameForm">
+      <label>Game Title:<br><input type="text" id="title" required></label><br>
+      <label>Number of Cards:<br><input type="number" id="count" value="2" min="1" required></label><br>
+      <label>Winning Pattern:<br>
+        <select id="pattern">
+          <option value="random">Random Pattern</option>
+          <option value="row">Row</option>
+          <option value="column">Column</option>
+          <option value="diagonal">Diagonal</option>
+          <option value="x">X Pattern</option>
+          <option value="full">Full Card</option>
+        </select>
+      </label><br>
+      <label>Enter 15 items (one per line):<br>
+        <textarea id="items" rows="8" required></textarea>
+      </label><br>
+      <button type="submit">Generate Game</button>
+    </form>
+    <div id="links"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
